@@ -1,0 +1,745 @@
+/* Author: Elardus Goslett
+Date:  05 2025
+Version: 13 May 2025
+*/
+
+/*
+COLOURS
+#fffffff - white
+#96af74 - olive green
+*/
+
+/* Fonts */
+
+    /* My developer friend gudided me so I was able to understand how to import multiple fonts from Google Fonts. Prior to this I was plannig to only use a single font */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* BASIC CSS RESET */
+
+    /* This is a practice my developer friends mentiond I should use as it helps format the website properly no matter the browser its used on. This helps to format the margin and padding etc to make sure the website loads as designed rather than the browsers presets */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+    margin: 0;
+}
+
+ul, ol, menu {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* GLOBAL STYLES 
+---------------------------------------
+*/
+
+    /* The use of calc percentages and px allows me to format my content within the container to specific widths. Developer suggested this for my hero abnenr design to give me more control  */
+
+.container {
+    max-width: 1400px;
+    margin-inline: auto;
+    width: calc(100% - 30px);
+    position: relative;
+}
+
+    /* 1024px was teh suggested break for ipad screens and allowed content to be formated from this screen size down */
+
+@media (min-width: 1024px) {
+    .container {
+        width: calc(100% - 60px);
+    }
+}
+
+    /* This is a trick I was shown to give me contorl over the vertical spacing of my website design. */
+
+.vert-spacer {
+    padding: 60px 0;
+}
+
+@media (min-width: 1024px) {
+    .vert-spacer {
+        padding: 100px 0;
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+
+    color: #211d1c;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+    /* I was told to use "rem" instead of "em" as its more commonly used in web design. I can also calulate the right rem need based on px using "nekoCalc" on Google */
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.125;
+}
+
+h2 {
+    font-size: 2.5rem;
+    line-height: 1.125;
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 3.75rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        line-height: 1.125;
+    }
+}
+
+
+/* BUTTONS */
+
+    /* I was struggling to get the buttons designed in CSS, so my developer friend helped guide me to do this. By setting up a "class="green-btn" I'm able to design all the button acorss my website to be the same. This was helpful as I was previously trying to diesgn is individual button in each section */
+
+    /* Some usefull tips I was shown for busttons, is to use justify-content to align the buttons, as well as the transition elements which allows me to control the colour transition as it's hovered over */
+
+
+a.green-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: #96af74;
+    padding: 0 25px;
+    border-radius: 60px;
+    transition: .3s;
+
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+a.green-btn:hover {
+    background-color: #00831E;
+}
+
+
+/* HEADER */
+
+    /* Using justify-content allowed me to equaility space my content */
+
+header {
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+    /* Having a class on my header logo allows me to control the size of the logo. I'm able to have a smaller logo size for mobile, and a larger size on desktop */
+
+.brand .logo {
+    width: 200px;
+}
+
+    /* As mentioned in my HTML, I struggled to set up a breakdown for my navigation, and everything I tried failed. This would be an area I require assistance with in a real world setting */
+
+.nav {
+    display: none;
+}
+
+.nav li a {
+    font-weight: 400;
+    color: #000000;
+    transition: .3s;
+}
+
+.nav li a:hover {
+    color: #96af74;
+}
+
+.nav li a.green-btn {
+    color: #fff;
+}
+
+.nav li a.green-btn:hover {
+    background-color: #00831E;
+}
+
+    /* Using a gap here allows me to control the gap between my navigation buttons with a specific pexels */
+
+@media (min-width: 1024px) {
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    header {
+        height: 100px;
+    }
+
+    /* It was suggested by my friend to increase the logo size once the website breakes to a smaller size */
+
+    .brand .logo {
+        width: 250px;
+    }
+}
+
+/* BANNER */
+
+    /* I learnt about using "display: grid" so I can control each individual element within my containor */
+
+.hero-banner {
+    position: relative;
+    height: 600px;
+    color: #FFFFFF;
+    align-items: center;
+    display: grid;
+}
+
+    /* Another tip I was shown, was to use "object-fit: cover" which will fit my image withing the whole space of a containor/section */
+
+.banner-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+    /* I was shown how to set up an overlay on my banner image so that I can control a black overlay and make the text more pominant and easy to read */
+
+.banner-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #000000;
+    opacity: .20;
+    z-index: 10;
+}
+
+    /* Using a z-index on my banner elements allows me to control the layer postion of the text and overlay */
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 30px;
+    z-index: 20;
+}
+
+    /* Having the below specifc CSS allowes me to contorl the content size and layout for my banner image text. Useful for controlling font size on dekstop and mobile */
+
+.banner-content h1 {
+    font-family: "Noto Serif Display", serif;
+    line-height: 1.25;
+    font-size: 2.5em;
+}
+
+
+/* INSIGHTS BANNER */
+
+    /* I set up a seprate banner so I was able to style is skinnier than the homespage panner */
+
+.hero-slim {
+    position: relative;
+    height: 400px;
+    color: #FFFFFF;
+    align-items: center;
+    display: grid;
+}
+
+.banner-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.banner-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #000000;
+    opacity: .30;
+    z-index: 10;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 30px;
+    z-index: 20;
+}
+
+.banner-content h1 {
+    font-family: "Noto Serif Display", serif;
+    line-height: 1.25;
+    font-size: 2.5em;
+}
+
+
+@media (min-width: 1024px) {
+    .banner-content {
+        padding: 0 60px;
+    }
+
+    .banner-content h1 {
+        font-size: 3em;
+    }
+}
+
+/* CONTENT BLOCK ONE */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .intro {
+        max-width: 60%;
+    }
+}
+
+/* CONTENT BLOCK TWO */
+
+.card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+}
+
+    /* Using display "block" allows me to adjust the image box specidically */
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+    /* My friend was able to guide me how to set up my overlay buttons for this section to get them how I wanted. Using the buttom + px, and left + % allowes me to posiotion the button in the right place. The transform translate x, ensure the button stays centered.  */
+
+.card-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    /* The below width measurments ensure the card boxes are all equality spaced */
+
+@media (min-width: 1024px) {
+    .card-grid .card {
+        width: 33.33333%;
+    }
+
+    .card-grid {
+        flex-direction: row;
+        gap: 30px;
+    }
+}
+
+/* CONTENT BLOCK THREE */
+
+    /* For this content section the use of flex-direction "column" allows me to have the content layout be vertical rather than horizontal */
+
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+    /* ading a gap size of 30px here allows me to space my H2 and P text to not be too close to eachother */
+
+    /* The use of width % ties into my CSS resent to ensure content is fomrated correctly on browsers */
+
+.about-grid .text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.image-box {
+    position: relative;
+    width: 100%;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+
+    .about-grid .text {
+        width: 60%;
+        padding-right: 100px;
+    }
+
+    /* Using a 40% width here allows me to reduce the image size by 40% from its origional size. This also helps me to have more control over the image box sizing */
+    
+    .image-box {
+        width: 40%;
+    }
+
+    /* Changing the flex-direction to row below allows me to override my prvious flex box to its origionla direction (horizontal) */
+
+    .about-grid {
+        flex-direction: row;
+        gap: 30px;
+    }
+}
+
+/* CONTENT BLOCK TWO - RESOURCES */
+
+    /* I made another CSS to target the resources page and control the layout specifically for this page */
+
+    /* I struggled with adding a button to this part of my design, although I did my best to get it placed where I needed based on code snippets that were done on other sections */
+
+.resource-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resource-grid .text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.image-box {
+    position: relative;
+    width: 100%;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.resource-btn {
+    position: relative;
+    bottom: -5px;
+}
+
+.vert-spacer-resource {
+    padding-bottom: 100px;
+}
+
+@media (min-width: 1024px) {
+
+    .resource-grid .text {
+        width: 60%;
+        padding-right: 100px;
+    }
+    
+    .image-box {
+        width: 40%;
+    }
+
+    .resource-grid {
+        flex-direction: row;
+        gap: 30px;
+    }
+}
+
+/* CONTENT BLOCK TWO - SPONSORS */
+
+    /* I made another CSS to target the sponsors page and control the image sizes for this specifc page */
+
+    /* When designing this page I duplicated my resources page and changes all the classes to sponsors so I could target them. In the process I accidently made the image boxes smaller, although I'm not sure how I did it. It was a happy accident but I actually relaly liked it for this page. */
+
+.sponsors-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sponsors-grid .text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.image-box {
+    position: relative;
+    width: 100%;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.sponsors-btn {
+    position: relative;
+    bottom: -5px;
+}
+
+.vert-spacer-sponsors {
+    padding-bottom: 50px;
+}
+
+@media (min-width: 1024px) {
+
+    .resource-grid .text {
+        width: 60%;
+        padding-right: 100px;
+    }
+    
+    .image-box {
+        width: 40%;
+    }
+
+    .sponsors-grid {
+        flex-direction: row;
+        gap: 30px;
+    }
+}
+
+/* IMAGE BANNER SECTION */
+
+    /* Using the display "grid" allows me to postion my text overlay on the image to gte the style I want */
+
+    /* By having individual classes for each element of my page benner, I have more control with making small adjustments for the banner size, text, and placement */
+
+.page-banner {
+    position: relative;
+    height: 500px;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+}
+
+    /* I used my Noto Serif font for this banner to match the hero banner, and stylise the website a bit more */
+
+.page-banner h2 {
+    font-family: "Noto Serif Display", serif;
+    line-height: 1.25;
+    font-size: 4.5rem;
+}
+
+    /* For my banner image, using postion absolute with height and width to 100%, allows me to fill the space with the exact size I like. Rather than relaying on the container to set the sizing */
+
+.page-banner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-banner .banner-content {
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+
+    .page-banner .banner-content {
+        max-width: 70%;
+    }
+}
+
+
+/* GOOGLE MAPS BANNER */
+
+    /* This was a tricky one for me to execute. I wanted to add a Google map to this page, but I wanted it to be screenwide like my homepage banner. It took a bit of trial and error but luckily I found a youtube video to help me get it right */
+
+.google-banner {
+    width: 100%;
+    height: 450px;
+    position: relative;
+}
+
+.google-banner iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+
+    .page-banner .banner-content {
+        max-width: 70%;
+    }
+}
+
+
+/* CONTENT BLOCK 4 */
+    
+    /* I had a lot of trouble formatting this section so everything aligns properly. I was lucky to learn how to use flex boxes and flex direction "column" to my advantage */
+
+.services {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-grid .card {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-grid img {
+    width: 50px;
+}
+
+    /* Again, the width calculation below allows me to have equaly spacing with my three card sections */
+
+@media (min-width: 1024px) {
+    .service-grid .card {
+        width: 33.33333%;
+    }
+
+    .service-grid {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .service-grid img {
+        width: 80px;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #96af74;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+
+.footer-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+@media (min-width: 768px) {
+    .footer-inner {
+        padding: 0 60px;
+    }
+}
+
+footer .heading {
+    font-weight: 400;
+    font-size: 22px;
+}
+
+footer a {
+    font-weight: 400;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer p {
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact a {
+    font-size: 16px;
+}
+
+footer .copyright {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    margin-top: 80px;
+    padding: 0 30px;
+}
+
+@media (min-width: 1024px) {
+    footer .copyright {
+        padding: 0 60px;
+    }
+}
+
+footer .copyright p,
+footer .copyright a {
+    font-size: 14px;
+}

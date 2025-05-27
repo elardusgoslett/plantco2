@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- With help from a friend who does web design, I was shown how to format my code in a clear with left click and "format document" which formatted my code. Fun trick as I felt my code was messy. However I still had a certain preference on formating the code so I can read it easily -->
+
+<!-- HEAD -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Plantco.</title>
+    <link rel="icon" href="./images/icon_leaf.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="stylesplant.css">
+</head>
+
+<body>
+<!-- HEADER -->
+
+    <!-- I met with a web developer friend who helped me create my hero banner and navogation section as I was struggling to get it to work propely -->
+
+    <!-- It was suggested that I dont use a wrapper for my website design, and rather containers so I have more control of each individual section. This helps later for my page wide banner to breakup the design -->
+
+    <header class="container">
+
+<!-- BRAND -->
+        <div class="brand">
+            <a href="/">
+                <img class="logo" src="images/logo.svg">
+            </a>
+        </div>
+
+<!-- NAVIGATION -->
+        <ul class="nav">
+            <li><a href="./insights.html" title="Plant Insights">Plant Insights</a></li>
+            <li><a href="./resources.html" title="Resources">Resources</a></li>
+            <li><a href="./sponsors.html" title="Sponsors">Sponsors</a></li>
+            <li><a class="green-btn" href="./contact.html">Contact us</a></li>
+        </ul>
+
+        <!-- Unfortuanly I struggled to set up a breakpoint for my navigation menu, and turn it into a burger menu. I had tried everything to achieve this but the results weren't good. I deceived to just hide my nav menu on smaller devices for a cleaer look. But in the real world this is a task I would need a lot of guidance with -->
+
+        <!-- Using a container rather than a background image for my hero banner allows me to control the layout more and use padding to move the container away from the top of the website page, which was previously undoable with using a background image -->
+
+        <!-- My developer friend also mentioned I should use "class" to contil these elemnts in CSS, as I was previously using ID which is not the best -->
+
+    </header>
+
+    <div class="container">
+
+        <div class="hero-banner">
+
+            <div class="banner-content">
+
+                <h1>Where plant lovers and <br> educators meet</h1>
+                <p>All your gardening and plant information in one place</p>
+
+                <div>
+                    <a class="green-btn" href="./insights.html" title="Plant insights">Plant Insights</a>
+                </div>
+
+            </div>
+
+            <div class="banner-overlay"></div>
+
+            <img class="banner-img" src="images/main-banner.webp">
+
+        </div>
+
+    </div>
+
+    <main>
+
+    <!-- adding vert-spacer into my class name below, links to my CSS vert-spacer snippet so all my content is equality spaced  -->
+
+<!-- CONTENT BLOCK ONE -->
+        <div class="container intro vert-spacer">
+            <h2>A hub for plant lovers</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat</p>
+        </div>
+
+        <!-- In block two I have my green button class linked to my global styles which has my button formats -->
+
+        <!-- I was also told that a "card" is the common discription for this style layout -->
+
+        <!-- Having a class for the card, button, and image allows me more control to ajust the layout and style of the box, images and button to get the right setup -->
+
+<!-- CONTENT BLOCK TWO -->
+        <div class="container card-grid">
+
+            <div class="card">
+                <a href="./plantinsight.html" title="Learn more about our plant insights">
+                    <img class="card-img" src="images/plant_insights.jpg" alt="plant insights">
+                </a>
+                <div class="card-btn">
+                    <a class="green-btn" href="./insights.html">Insights</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="./resources.html" title="We'll help you find resources">
+                    <img class="card-img" src="images/resources.jpg" alt="resources">
+                </a>
+                <div class="card-btn">
+                    <a class="green-btn" href="./resources.html">Resources</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="./sponsors.html" title="Meet our sponsors">
+                    <img class="card-img" src="./images/sponsors.jpg" alt="Meet our sponsors">
+                </a>
+                <div class="card-btn">
+                    <a class="green-btn" href="sponsors.html">Sponsors</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- again adding the vert-spacer to link to my CSS and keep content equality spaced -->
+
+<!-- CONTENT BLOCK THREE -->
+        <div class="container about-grid vert-spacer">
+
+            <div class="text">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                    ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
+                    iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+                    feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
+                    luptatum zzril delenit augue duis dolore te feugait nulla facilisisuscipit lobortis nisl ut
+                    aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="image-box">
+                <a href="" title="Meet the garden gurus">
+                    <img src="images/about_us.jpg" alt="about us"></a>
+            </div>
+
+        </div>
+
+<!-- BANNER IMAGE SECTION -->
+        <div class="page-banner">
+
+            <div class="banner-content">
+                <h2>All your garden and plant tips in one place</h2>
+            </div>
+
+            <img src="images/banner_image.jpg" alt="garden guru community">
+
+        </div>
+
+<!-- CONTENT BLOACK FOUR -->
+        <div class="container services vert-spacer">
+
+            <h2>How can we help?</h2>
+
+            <div class="service-grid">
+
+                <div class="card">
+                    <img src="images/icon_chat.png" alt="chat support">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor nibh at vehicula
+                        molestie. Maecenas euismod lorem venenatis enim tincidunt tincidunt. Etiam sodales
+                        ullamcorper dui et rhoncus. Maecenas ligula risus, ullamcorper blandit placerat at,
+                        congue id quam.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/icon_leaf.png" alt="plant advice">
+                    <p>Etiam non ligula sit amet sem rutrum porttitor et ut purus. Praesent id ipsum justo.
+                        Suspendisse feugiat urna mattis dictum commodo. Aenean tempus mi vel convallis rhoncus.
+                        Suspendisse potenti. Praesent vel semper ex. Etiam porta lectus porta felis venenatis,
+                        quis porttitor metus viverra.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/icon_support.png" alt="community support">
+                    <p>Aliquam porta tincidunt ultricies. Morbi aliquam lorem lorem, vitae ultrices nisi euismod
+                        eu. Mauris ullamcorper felis sed erat porta dapibus. Aliquam sagittis nulla a nulla
+                        dignissim malesuada. Mauris fermentum condimentum dolor in rhoncus. Fusce a pretium
+                        orci, tempus eleifend ligula.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- I was very close to changing my footer design to be similar to our Green Green and More learnings, as I just couldn't format it correctly. Luckily with some assistance from my friend I was shown how to strtucture each class within my container to achieve the right layout -->
+
+<!-- FOOTER -->
+    <footer class="container">
+
+        <div class="footer-inner">
+
+            <div class="brand">
+                <a href="/">
+                    <img class="logo" src="images/logo-white.svg">
+                </a>
+            </div>
+
+            <div class="footer-right">
+
+                <ul class="footer-nav">
+                    <li><a href="insights.html" title="Plant Insights">Plant Insights</a></li>
+                    <li><a href="resources.html" title="Resources">Resources</a></li>
+                    <li><a href="sponsors.html" title="Sponsors">Sponsors</a></li>
+                </ul>
+
+                <div class="footer-contact">
+                    <p class="heading">Contact us</p>
+                    <a href="mailto:egoslett@our.ecu.edu.au" target="_blank"
+                        rel="noopener noreferrer">egoslett@our.ecu.edu.au</a>
+                    <p>2 Bradford Street, Mount Lawley <br>WA 6050</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>&copy; Garden Guru Community</p>
+            <a href="https://validator.w3.org/">HTML Validator</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Terms & Conditions</a>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
